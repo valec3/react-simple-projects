@@ -1,9 +1,14 @@
 # minicomponentes en React
 
 -   Carrousel basico
+-   Scroll infinito
+-   Drag and drop
+-   Stepper
+-   Rating
+-   Input con autocompletado
+
 -   Popup
 -   Modal
--   Scroll infinito
 -   Tabla
 -   Formulario
 -   Accordion
@@ -11,12 +16,10 @@
 -   Menu
 -   Sidebar
 -   Tooltip
--   Stepper
 -   Progress bar
 -   Slider
 -   Rating
 -   Editor de texto
--   Drag and drop
 -   Autocomplete
 -   QR code
 -   Roulette wheel
