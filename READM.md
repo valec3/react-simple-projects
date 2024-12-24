@@ -1,0 +1,22 @@
+# minicomponentes en React
+
+-   Carrousel basico
+-   Popup
+-   Modal
+-   Scroll infinito
+-   Tabla
+-   Formulario
+-   Accordion
+-   Alert
+-   Menu
+-   Sidebar
+-   Tooltip
+-   Stepper
+-   Progress bar
+-   Slider
+-   Rating
+-   Editor de texto
+-   Drag and drop
+-   Autocomplete
+-   QR code
+-   Roulette wheel
