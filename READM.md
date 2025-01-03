@@ -23,3 +23,23 @@
 -   Autocomplete
 -   QR code
 -   Roulette wheel
+
+# Intersection Observer API
+
+-   Infinite Scroll
+-   Lazy Loading
+-   Image Gallery
+-   Sticky Navigation
+-   Parallax Scrolling
+-   Scroll Animation
+-   Scroll to Top Button
+-   Scrollspy
+-   Reveal on Scroll
+
+# Keyboard Events
+
+-   Keyboard Shortcuts
+-   Autocomplete
+-   Dropdown
+
+#
