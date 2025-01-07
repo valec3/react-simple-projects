@@ -36,7 +36,7 @@ const HeroBanner = () => {
                     entrenamiento
                 </Typography>
                 <Typography
-                    fontSize="22px"
+                    fontSize="23px"
                     lineHeight="35px"
                     fontFamily="Josefin Sans"
                 >
