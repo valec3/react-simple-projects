@@ -13,23 +13,30 @@ const HeroBanner = () => {
         >
             <Box
                 sx={{
-                    mt: { xs: '70px', lg: '200px' },
+                    mt: { xs: '30px', md: '70px', lg: '200px' },
                     width: '600px',
+                    display: { xs: 'flex', lg: 'block' },
+                    flexDirection: 'column',
+                    alignItems: 'center',
                 }}
             >
                 <Typography
                     variant="h2"
                     sx={{ mt: 4, mb: 2 }}
                     color="#FF2625"
-                    fontSize={{ xs: '1rem', sm: '2rem' }}
+                    fontSize={{ xs: '1.5rem', sm: '3rem' }}
                     fontWeight="bold"
                     fontFamily="Josefin Sans"
                 >
-                    Fitness Club
+                    Club Fitness
                 </Typography>
                 <Typography
                     fontWeight={700}
-                    sx={{ fontSize: { xs: '36px', lg: '40px' } }}
+                    sx={{
+                        fontSize: { xs: '36px', lg: '40px' },
+                        lineHeight: '50px',
+                        textAlign: { xs: 'center', lg: 'left' },
+                    }}
                     fontFamily="Josefin Sans"
                 >
                     Descubre los mejores ejercicios para tu rutina de
@@ -64,6 +71,7 @@ const HeroBanner = () => {
                         fontSize: '220px',
                         zIndex: -1,
                         fontStyle: 'italic',
+                        letterSpacing: '20px',
                     }}
                     fontFamily="Josefin Sans"
                 >
@@ -73,6 +81,7 @@ const HeroBanner = () => {
             <Box
                 sx={{
                     zIndex: 1,
+                    display: { xs: 'none', lg: 'block' },
                 }}
             >
                 <img

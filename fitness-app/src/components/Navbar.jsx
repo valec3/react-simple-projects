@@ -4,12 +4,23 @@ import Logo from '../assets/images/logo.png';
 const Navbar = () => {
     return (
         <Stack
-            direction="row"
+            direction={{ xs: 'column', sm: 'row' }}
             justifyContent="none"
-            alignItems="center"
-            gap={{ xs: '120px', sm: '50px' }}
-            sx={{ mt: { sm: '32px', xs: '20px' } }}
-            position="fixed"
+            alignItems={{ xs: 'center', sm: 'flex-end' }}
+            width={'100%'}
+            gap={{ xs: '5px', md: '50px' }}
+            sx={{
+                pt: { sm: '32px', xs: '20px' },
+                pb: { sm: '12px', xs: '5px' },
+                backgroundColor: '#fff',
+                left: 0,
+                top: 0,
+                zIndex: 1000,
+                backdropFilter: 'blur(10px)',
+                filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1))',
+                opacity: 0.95,
+            }}
+            position={{ md: 'fixed', xs: 'static' }}
         >
             <Link to="/">
                 <img
