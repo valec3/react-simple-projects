@@ -2,8 +2,18 @@
 body {
     font-family: 'Josefin Sans';
     background-color: #fffafb;
+    width: 100vw;
+    overflow-x: hidden;
 }
-
+.react-horizontal-scrolling-menu--scroll-container {
+    margin-inline: auto;
+    @media (min-width: 768px) {
+        width: 500px !important;
+    }
+    @media (min-width: 1200px) {
+        width: 1000px !important;
+    }
+}
 *,
 *::before,
 *::after {

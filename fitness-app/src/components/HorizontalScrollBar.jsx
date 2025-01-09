@@ -1,24 +1,16 @@
-import { Box, IconButton, Stack } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import PropTypes from 'prop-types';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import LeftArrowIcon from '@mui/icons-material/ArrowBackIos';
 import RightArrowIcon from '@mui/icons-material/ArrowForwardIos';
 import { useContext } from 'react';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
+
 const LeftArrow = () => {
     const { scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <IconButton
-            onClick={() => scrollPrev()}
-            sx={{
-                position: 'absolute',
-                left: 0,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 1,
-            }}
-        >
+        <IconButton onClick={() => scrollPrev()}>
             <LeftArrowIcon />
         </IconButton>
     );
@@ -28,16 +20,7 @@ const RightArrow = () => {
     const { scrollNext } = useContext(VisibilityContext);
 
     return (
-        <IconButton
-            onClick={() => scrollNext()}
-            sx={{
-                position: 'absolute',
-                right: 0,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 1,
-            }}
-        >
+        <IconButton onClick={() => scrollNext()}>
             <RightArrowIcon />
         </IconButton>
     );
@@ -51,17 +34,22 @@ const HorizontalScrollBar = ({
 }) => {
     return (
         <ScrollMenu
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                overflowX: 'hidden',
+                padding: '20px',
+            }}
             LeftArrow={LeftArrow}
             RightArrow={RightArrow}
-            options={{ alignCenter: false }}
-            onWheel={true}
         >
-            {data?.map((element) => (
+            {data.map((element, idx) => (
                 <Box
-                    key={element}
-                    title={element}
-                    itemId={element}
+                    key={idx}
+                    itemId={idx}
+                    title={element.name}
                     sx={{
+                        display: 'inline-block',
                         margin: '10px',
                     }}
                 >
@@ -77,10 +65,10 @@ const HorizontalScrollBar = ({
 };
 
 HorizontalScrollBar.propTypes = {
-    data: PropTypes.array,
-    setElementSelected: PropTypes.func,
+    data: PropTypes.array.isRequired,
+    setElementSelected: PropTypes.func.isRequired,
     elementSelected: PropTypes.string,
-    Component: PropTypes.elementType,
+    Component: PropTypes.elementType.isRequired,
 };
 
 export default HorizontalScrollBar;

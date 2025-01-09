@@ -52,8 +52,10 @@ const CategoriesExercises = memo(function CategoriesExercises({
             sx={{
                 position: 'relative',
                 width: '100%',
-                overflow: 'hidden',
                 padding: '25px',
+                maxWidth: '1200px',
+                marginInline: 'auto',
+                overflowX: 'auto',
             }}
         >
             <HorizontalScrollBar

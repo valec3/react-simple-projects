@@ -10,14 +10,14 @@ const SearchAndExerciseList = () => {
     }, []);
     console.log('rendering searchedExercises');
     return (
-        <div>
+        <>
             <SearchBar setSearchedExercises={handleSetSearchedExercises} />
             <CategoriesExercises
                 setSearchedExercises={handleSetSearchedExercises}
                 searchedExercises={searchedExercises}
             />
             <ExerciseList exercises={searchedExercises} />
-        </div>
+        </>
     );
 };
 
