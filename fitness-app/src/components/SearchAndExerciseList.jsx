@@ -4,9 +4,11 @@ import ExerciseList from './ExerciseList';
 import CategoriesExercises from './CategoriesExercises';
 const SearchAndExerciseList = () => {
     const [searchedExercises, setSearchedExercises] = useState([]);
-
+    const [searchedExercisesFiltered, setSetsearchedExercisesFiltered] =
+        useState([]);
     const handleSetSearchedExercises = useCallback((exercises) => {
         setSearchedExercises(exercises);
+        setSetsearchedExercisesFiltered(exercises);
     }, []);
     console.log('rendering searchedExercises');
     return (
@@ -15,8 +17,9 @@ const SearchAndExerciseList = () => {
             <CategoriesExercises
                 setSearchedExercises={handleSetSearchedExercises}
                 searchedExercises={searchedExercises}
+                searchedExercisesFiltered={searchedExercisesFiltered}
             />
-            <ExerciseList exercises={searchedExercises} />
+            <ExerciseList exercises={searchedExercisesFiltered} />
         </>
     );
 };
