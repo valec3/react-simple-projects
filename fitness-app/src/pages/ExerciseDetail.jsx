@@ -32,12 +32,12 @@ const ExerciseDetail = () => {
                 console.error('Error fetching detail exercise:', error);
             }
         };
-        // fetchDetailExercise();
+        fetchDetailExercise();
     }, [id]);
     return (
         <Box mt="8rem">
             <ExerciseDetails exercise={exercise} />
-            <ExerciseVideos exercise={exercise} />
+            <ExerciseVideos query={exercise.name} />
             <SimilarExercises />
         </Box>
     );

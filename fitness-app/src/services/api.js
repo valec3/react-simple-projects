@@ -64,7 +64,7 @@ export const getDetailExercise = async (id) => {
 };
 
 export const getRelatedVideos = async (search) => {
-    return fetch(`${API_URL_YT}/search?query=${search}`, {
+    return fetch(`${API_URL_YT}/search?query=${search} ejercicio`, {
         method: 'GET',
         headers: headersYT,
     })

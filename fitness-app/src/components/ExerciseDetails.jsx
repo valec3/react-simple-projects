@@ -27,6 +27,7 @@ const ExerciseDetails = ({ exercise }) => {
             gap="60px"
             direction={{ xs: 'column', md: 'row' }}
             alignItems={'center'}
+            justifyContent={'space-around'}
         >
             <img
                 src={gifUrl}
@@ -40,15 +41,32 @@ const ExerciseDetails = ({ exercise }) => {
                         xs: ' 20px',
                         lg: '40px',
                     },
+                    padding: '20px',
                 }}
             >
                 <Typography
                     variant="h4"
                     fontWeight={'bold'}
                     textAlign={{ xs: 'center', md: 'left' }}
+                    fontSize={{ xs: '24px', md: '42px' }}
                 >
                     {name}
                 </Typography>
+
+                <List>
+                    <Typography
+                        variant="h6"
+                        fontWeight={'bold'}
+                        color="#FF2625"
+                    >
+                        Instrucciones
+                    </Typography>
+                    {instructions.map((instruction, index) => (
+                        <Typography key={index} variant="body1">
+                            {instruction}
+                        </Typography>
+                    ))}
+                </List>
                 <Stack spacing={2}>
                     {bodyPartData.map((item) => (
                         <Box
@@ -81,7 +99,6 @@ const ExerciseDetails = ({ exercise }) => {
                         </Box>
                     ))}
                 </Stack>
-                <List></List>
             </Stack>
         </Stack>
     );
