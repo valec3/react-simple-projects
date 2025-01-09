@@ -14,6 +14,7 @@ const SearchAndExerciseList = () => {
             <SearchBar setSearchedExercises={handleSetSearchedExercises} />
             <CategoriesExercises
                 setSearchedExercises={handleSetSearchedExercises}
+                searchedExercises={searchedExercises}
             />
             <ExerciseList exercises={searchedExercises} />
         </div>

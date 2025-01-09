@@ -3,9 +3,12 @@ import { getCategories } from '../services/api';
 import { memo, useEffect, useState } from 'react';
 import HorizontalScrollBar from './HorizontalScrollBar';
 import PropTypes from 'prop-types';
+import BodyPart from './BodyPart';
 const CategoriesExercises = memo(function CategoriesExercises({
     setSearchedExercises = () => {},
+    searchedExercises = [],
 }) {
+    const [categorieSelected, setCategorieSelected] = useState('');
     const [categories, setCategories] = useState([
         'back',
         'cardio',
@@ -30,22 +33,42 @@ const CategoriesExercises = memo(function CategoriesExercises({
         };
         // fetchCategories();
     }, []);
+
+    useEffect(() => {
+        const filterExercises = async () => {
+            const filteredExercises = searchedExercises.filter((exercise) => {
+                return exercise.bodyPart === categorieSelected;
+            });
+            setSearchedExercises(filteredExercises);
+        };
+        if (categorieSelected) {
+            filterExercises();
+        }
+    }, [categorieSelected, setSearchedExercises]);
+
     console.log('rendering categories', categories);
     return (
         <Box
             sx={{
                 position: 'relative',
                 width: '100%',
+                overflow: 'hidden',
                 padding: '25px',
             }}
         >
-            <HorizontalScrollBar data={categories} />
+            <HorizontalScrollBar
+                data={categories}
+                setElementSelected={setCategorieSelected}
+                elementSelected={categorieSelected}
+                Component={BodyPart}
+            />
         </Box>
     );
 });
 
 CategoriesExercises.propTypes = {
     setSearchedExercises: PropTypes.func,
+    searchedExercises: PropTypes.array,
 };
 
 export default CategoriesExercises;
