@@ -2,16 +2,20 @@ import { useRef, useState } from 'react';
 import { Box, Stack, TextField, Typography, IconButton } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import { getExercises } from '../services/api';
-const SearchBar = () => {
+const SearchBar = ({ setSearchedExercises = () => {} }) => {
     const searchInputElement = useRef();
     const handleSearch = async (e) => {
         e.preventDefault();
-        if (searchInputElement.current.querySelector('input').value === '') {
+        const valueSearch =
+            searchInputElement.current.querySelector('input').value;
+        if (!valueSearch) {
             return;
         }
-        const data = await getExercises();
+        const data = await getExercises(valueSearch);
+        setSearchedExercises(data);
         console.log(data);
     };
+    console.log('rendering SearchBar');
     return (
         <Stack
             alignItems={'center'}
