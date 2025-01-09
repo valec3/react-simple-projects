@@ -170,11 +170,13 @@ const SearchAndExerciseList = () => {
             ],
         },
     ]);
-    const [searchedExercisesFiltered, setSetsearchedExercisesFiltered] =
+    const [searchedExercisesFiltered, setSearchedExercisesFiltered] =
         useState(searchedExercises);
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(10);
     const handleSetSearchedExercises = useCallback((exercises) => {
         setSearchedExercises(exercises);
-        setSetsearchedExercisesFiltered(exercises);
+        setSearchedExercisesFiltered(exercises);
     }, []);
     console.log('rendering searchedExercises');
     return (
@@ -183,11 +185,10 @@ const SearchAndExerciseList = () => {
             <CategoriesExercises
                 setSearchedExercises={handleSetSearchedExercises}
                 searchedExercises={searchedExercises}
-                setSetsearchedExercisesFiltered={
-                    setSetsearchedExercisesFiltered
-                }
+                setSearchedExercisesFiltered={setSearchedExercisesFiltered}
             />
             <ExerciseList exercises={searchedExercisesFiltered} />
+            {/* <InfinitScroll/> */}
         </>
     );
 };

@@ -10,8 +10,7 @@ const Navbar = () => {
             width={'100%'}
             gap={{ xs: '5px', md: '50px' }}
             sx={{
-                pt: { sm: '32px', xs: '20px' },
-                pb: { sm: '12px', xs: '5px' },
+                py: { sm: '12px', xs: '5px' },
                 backgroundColor: '#fff',
                 left: 0,
                 top: 0,

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import BodyPart from './BodyPart';
 const CategoriesExercises = memo(function CategoriesExercises({
     setSearchedExercises = () => {},
-    setSetsearchedExercisesFiltered = () => {},
+    setSearchedExercisesFiltered = () => {},
     searchedExercises = [],
 }) {
     const [categorieSelected, setCategorieSelected] = useState('');
@@ -40,12 +40,17 @@ const CategoriesExercises = memo(function CategoriesExercises({
             const filteredExercises = searchedExercises.filter((exercise) => {
                 return exercise.bodyPart === categorieSelected;
             });
-            setSetsearchedExercisesFiltered(filteredExercises);
+            setSearchedExercisesFiltered(filteredExercises);
         };
         if (categorieSelected) {
             filterExercises();
         }
-    }, [categorieSelected, setSearchedExercises]);
+    }, [
+        categorieSelected,
+        setSearchedExercises,
+        searchedExercises,
+        setSearchedExercisesFiltered,
+    ]);
 
     console.log('rendering categories', categories);
     return (
@@ -72,7 +77,7 @@ const CategoriesExercises = memo(function CategoriesExercises({
 CategoriesExercises.propTypes = {
     setSearchedExercises: PropTypes.func,
     searchedExercises: PropTypes.array,
-    setSetsearchedExercisesFiltered: PropTypes.array,
+    setSearchedExercisesFiltered: PropTypes.array,
 };
 
 export default CategoriesExercises;
