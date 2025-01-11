@@ -56,7 +56,7 @@ const ExerciseDetail = () => {
         <Box mt="8rem">
             <ExerciseDetails exercise={exercise} />
             <ExerciseVideos query={exercise.name} />
-            <SimilarExercises keyword={exercise.name} />
+            <SimilarExercises keyword={exercise.bodyPart} />
         </Box>
     );
 };

@@ -84,7 +84,7 @@ const ExerciseVideos = ({ query }) => {
                 console.error('Error fetching related videos:', error);
             }
         };
-        // fetchVideos();
+        fetchVideos();
     }, [query]);
     return (
         <Box sx={{ marginTop: { lg: '40px', xs: '20px' } }} p="20px">

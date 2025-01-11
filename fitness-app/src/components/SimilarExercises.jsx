@@ -1,7 +1,7 @@
 import { Box, Typography, Stack } from '@mui/material';
 import HorizontalScrollBar from './HorizontalScrollBar';
 import { useEffect, useState } from 'react';
-import { getExercises } from '../services/api';
+import { getRelatedExercises } from '../services/api';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
@@ -12,7 +12,7 @@ const SimilarExercises = ({ keyword }) => {
         const fetchSimilarExercises = async () => {
             try {
                 setIsLoading(true);
-                const data = await getExercises(keyword);
+                const data = await getRelatedExercises(keyword);
                 setIsLoading(false);
                 setSimilarExercises(data);
             } catch (error) {

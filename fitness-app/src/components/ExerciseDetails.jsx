@@ -50,13 +50,14 @@ const ExerciseDetails = ({ exercise }) => {
                     fontWeight={'bold'}
                     textAlign={{ xs: 'center', md: 'left' }}
                     fontSize={{ xs: '24px', md: '42px' }}
+                    textTransform={'capitalize'}
                 >
                     {name}
                 </Typography>
 
                 <List>
                     <Typography
-                        variant="h6"
+                        variant="h5"
                         fontWeight={'bold'}
                         color="#FF2625"
                     >
