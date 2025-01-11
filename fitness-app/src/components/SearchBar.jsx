@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Box, Stack, TextField, Typography, IconButton } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import { getExercises } from '../services/api';
-const SearchBar = ({ setSearchedExercises = () => {} }) => {
+const SearchBar = ({ setSearchedExercises = () => {}, setIsLoading }) => {
     const searchInputElement = useRef();
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -11,8 +11,10 @@ const SearchBar = ({ setSearchedExercises = () => {} }) => {
         if (!valueSearch) {
             return;
         }
+        setIsLoading(true);
         const data = await getExercises(valueSearch);
         setSearchedExercises(data);
+        setIsLoading(false);
         console.log(data);
     };
     console.log('rendering SearchBar');

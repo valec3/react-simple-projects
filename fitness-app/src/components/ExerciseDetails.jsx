@@ -2,6 +2,7 @@ import BodyPartImage from '../assets/icons/body-part.png';
 import TargetImage from '../assets/icons/target.png';
 import EquipmentImage from '../assets/icons/equipment.png';
 import { Box, Button, List, Stack, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 const ExerciseDetails = ({ exercise }) => {
     const { bodyPart, equipment, target, instructions, name, gifUrl } =
         exercise;
@@ -61,7 +62,7 @@ const ExerciseDetails = ({ exercise }) => {
                     >
                         Instrucciones
                     </Typography>
-                    {instructions.map((instruction, index) => (
+                    {instructions?.map((instruction, index) => (
                         <Typography key={index} variant="body1">
                             {instruction}
                         </Typography>
@@ -104,19 +105,8 @@ const ExerciseDetails = ({ exercise }) => {
     );
 };
 
-export default ExerciseDetails;
+ExerciseDetails.propTypes = {
+    exercise: PropTypes.object.isRequired,
+};
 
-// bodyPart: 'waist',
-//         equipment: 'body weight',
-//         gifUrl: 'https://v2.exercisedb.io/image/aPgRy7VouW11kN',
-//         id: '0002',
-//         name: '45° side bend',
-//         target: 'abs',
-//         secondaryMuscles: ['obliques'],
-//         instructions: [
-//             'Stand with your feet shoulder-width apart and your arms extended straight down by your sides.',
-//             'Keeping your back straight and your core engaged, slowly bend your torso to one side, lowering your hand towards your knee.',
-//             'Pause for a moment at the bottom, then slowly return to the starting position.',
-//             'Repeat on the other side.',
-//             'Continue alternating sides for the desired number of repetitions.',
-//         ],
+export default ExerciseDetails;

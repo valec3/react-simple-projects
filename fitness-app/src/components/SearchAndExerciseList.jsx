@@ -172,6 +172,7 @@ const SearchAndExerciseList = () => {
     ]);
     const [searchedExercisesFiltered, setSearchedExercisesFiltered] =
         useState(searchedExercises);
+    const [isLoading, setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
     const handleSetSearchedExercises = useCallback((exercises) => {
@@ -181,13 +182,19 @@ const SearchAndExerciseList = () => {
     console.log('rendering searchedExercises');
     return (
         <>
-            <SearchBar setSearchedExercises={handleSetSearchedExercises} />
+            <SearchBar
+                setSearchedExercises={handleSetSearchedExercises}
+                setIsLoading={setIsLoading}
+            />
             <CategoriesExercises
                 setSearchedExercises={handleSetSearchedExercises}
                 searchedExercises={searchedExercises}
                 setSearchedExercisesFiltered={setSearchedExercisesFiltered}
             />
-            <ExerciseList exercises={searchedExercisesFiltered} />
+            <ExerciseList
+                exercises={searchedExercisesFiltered}
+                isLoading={isLoading}
+            />
             {/* <InfinitScroll/> */}
         </>
     );

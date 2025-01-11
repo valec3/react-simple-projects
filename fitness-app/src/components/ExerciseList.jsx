@@ -1,7 +1,10 @@
 import { Box, Stack } from '@mui/material';
 import ExerciseCard from './ExerciseCard';
-
-const ExerciseList = ({ exercises }) => {
+import Loader from './Loader';
+const ExerciseList = ({ exercises, isLoading }) => {
+    if (isLoading) {
+        return <Loader />;
+    }
     return (
         <Box display={'flex'} justifyContent={'center'} width={'100%'}>
             <Stack

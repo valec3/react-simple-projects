@@ -10,8 +10,11 @@ import { useNavigate } from 'react-router-dom';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
 import PropTypes from 'prop-types';
-const ExerciseCard = ({ exercise }) => {
+const ExerciseCard = ({ exercise, element }) => {
     const navigate = useNavigate();
+    if (element) {
+        exercise = element;
+    }
     return (
         <Card
             sx={{

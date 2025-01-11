@@ -31,6 +31,7 @@ const HorizontalScrollBar = ({
     setElementSelected,
     elementSelected,
     Component,
+    additionalProps,
 }) => {
     return (
         <ScrollMenu

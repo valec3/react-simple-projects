@@ -112,8 +112,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 387px;
-    height: 381px;
+    width: 400px;
     text-decoration: none;
 }
 
@@ -141,13 +140,18 @@ body {
     }
 
     .exercise-video {
-        width: 320px;
+        width: 380px;
         height: 300px;
     }
 }
-
+@media screen and (max-width: 698px) {
+    .exercise-video {
+        width: 100%;
+    }
+}
 @media screen and (max-width: 400px) {
     .exercise-card {
         width: 280px;
+        height: auto;
     }
 }

@@ -63,6 +63,26 @@ export const getDetailExercise = async (id) => {
         });
 };
 
+export const getRelatedExercises = async (category) => {
+    return fetch(`${API_URL}/exercises/bodyPart/${category}`, {
+        method: 'GET',
+        headers,
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => data)
+        .catch((error) => {
+            console.error('Error fetching related exercises:', error);
+            throw error;
+        });
+};
+
+// VIDEOS
+
 export const getRelatedVideos = async (search) => {
     return fetch(`${API_URL_YT}/search?query=${search} ejercicio`, {
         method: 'GET',

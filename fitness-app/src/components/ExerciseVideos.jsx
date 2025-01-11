@@ -1,6 +1,5 @@
 import { getRelatedVideos } from '../services/api';
 import { Typography, Box, Stack } from '@mui/material';
-import Loader from './Loader';
 import { useEffect, useState } from 'react';
 const ExerciseVideos = ({ query }) => {
     const [videos, setVideos] = useState([
@@ -73,12 +72,14 @@ const ExerciseVideos = ({ query }) => {
             },
         },
     ]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         const fetchVideos = async () => {
             try {
+                setIsLoading(true);
                 const fetchedData = await getRelatedVideos(query);
                 setVideos(fetchedData.contents);
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching related videos:', error);
             }
@@ -99,10 +100,10 @@ const ExerciseVideos = ({ query }) => {
             </Typography>
             <Stack
                 sx={{
-                    flexDirection: { lg: 'row' },
-                    gap: { lg: '110px', xs: '0px' },
+                    flexDirection: 'row',
+                    gap: { md: '50px', xs: '20px' },
                 }}
-                justifyContent="flex-start"
+                justifyContent="space-between"
                 flexWrap="wrap"
                 alignItems="center"
             >
@@ -110,16 +111,24 @@ const ExerciseVideos = ({ query }) => {
                     <a
                         key={index}
                         className="exercise-video"
+                        style={{
+                            border: '1px solid #ddd',
+                            borderRadius: '15px',
+                            overflow: 'hidden',
+                        }}
                         href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
                         target="_blank"
                         rel="noreferrer"
                     >
                         <img
-                            style={{ borderTopLeftRadius: '20px' }}
                             src={item.video.thumbnails[0].url}
                             alt={item.video.title}
+                            style={{
+                                height: '100%',
+                                objectFit: 'cover',
+                            }}
                         />
-                        <Box>
+                        <Box p={1}>
                             <Typography
                                 sx={{ fontSize: { lg: '28px', xs: '18px' } }}
                                 fontWeight={600}
