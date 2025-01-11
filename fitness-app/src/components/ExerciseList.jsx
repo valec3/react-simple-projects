@@ -5,6 +5,21 @@ const ExerciseList = ({ exercises, isLoading }) => {
     if (isLoading) {
         return <Loader />;
     }
+    if (exercises.length === 0) {
+        return (
+            <Box
+                display={'flex'}
+                justifyContent={'center'}
+                width={'100%'}
+                paddingBlock={'20px'}
+            >
+                <h1>
+                    No se encontraron ejercicios. Intenta con otro término de
+                    búsqueda.
+                </h1>
+            </Box>
+        );
+    }
     return (
         <Box display={'flex'} justifyContent={'center'} width={'100%'}>
             <Stack

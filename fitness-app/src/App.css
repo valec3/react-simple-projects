@@ -8,10 +8,16 @@ body {
 .react-horizontal-scrolling-menu--scroll-container {
     margin-inline: auto;
     @media (min-width: 768px) {
-        width: 500px !important;
+        width: 600px !important;
     }
     @media (min-width: 1200px) {
-        width: 1000px !important;
+        width: 1100px !important;
+    }
+    @media (min-width: 1400px) {
+        width: 1300px !important;
+    }
+    @media (min-width: 1920px) {
+        width: 1350px !important;
     }
 }
 *,

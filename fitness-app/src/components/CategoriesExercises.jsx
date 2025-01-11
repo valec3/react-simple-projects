@@ -59,7 +59,6 @@ const CategoriesExercises = memo(function CategoriesExercises({
                 position: 'relative',
                 width: '100%',
                 padding: '25px',
-                maxWidth: '1200px',
                 marginInline: 'auto',
                 overflowX: 'auto',
             }}
